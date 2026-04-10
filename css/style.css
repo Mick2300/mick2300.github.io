@@ -1,0 +1,56 @@
+:root{
+    --bg: #0d0208;
+    --pink: #ff00bd;
+    --green: #39ff14;
+    --text: #f0f0f0;
+}
+body{ 
+    background-color:var(--bg); /*background color*/
+
+    background-image: linear-gradient(rgba(13, 2, 8, 0.9), rgba(13, 2, 8, 0.9)),
+    url('../Assets/bunnyhead.png');
+
+    background-repeat:repeat; /*this will tile the bunny head asset */
+    background-size: 80px; /*size of the bunny head*/
+    background-attachment: fixed; /*makes sure the heads stay in place */
+
+    color:var(--text); /* Light text color */
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1{
+    font-family:'Rubik Spray Paint', system-ui;
+    color: #df64be
+}
+
+
+main {
+    max-width: 900px; 
+    margin: 0 auto;   
+    padding: 40px 20px;
+}
+
+
+.skill-tag {
+    color: #39ff14; 
+    font-family: 'JetBrains Mono', monospace;
+    border: 1px solid #39ff14;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 10px;
+}
+.logo{
+    font-family: 'Rubik Spray Paint', cursive;
+    color: #ff00bd; /* Base Pink */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Makes the glow fade in smoothly */
+}
+
+.logo:hover {
+    color: #39ff14; /* Swaps to Green on hover */
+    text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14; /* Adds the neon glow */
+}
