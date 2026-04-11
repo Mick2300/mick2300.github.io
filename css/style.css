@@ -1,30 +1,21 @@
-:root{
+:root {
     --bg: #0d0208;
     --pink: #ff00bd;
     --green: #39ff14;
     --text: #f0f0f0;
 }
-body{ 
-    background-color:var(--bg); /*background color*/
 
+body { 
+    background-color: var(--bg);
     background-image: linear-gradient(rgba(13, 2, 8, 0.9), rgba(13, 2, 8, 0.9)),
-    url('../Assets/bunnyhead.png');
-
-    background-repeat:repeat; /*this will tile the bunny head asset */
-    background-size: 80px; /*size of the bunny head*/
-    background-attachment: fixed; /*makes sure the heads stay in place */
-
-    color:var(--text); /* Light text color */
+                      url('assets/bunnyhead.png'); /* Removed ../ for GitHub safety */
+    background-repeat: repeat;
+    background-size: 80px;
+    background-attachment: fixed;
+    color: var(--text);
     font-family: 'Inter', sans-serif;
     margin: 0;
-    padding: 20px;
 }
-
-h1{
-    font-family:'Rubik Spray Paint', system-ui;
-    color: #df64be
-}
-
 
 main {
     max-width: 900px; 
@@ -32,73 +23,89 @@ main {
     padding: 40px 20px;
 }
 
-
-.skill-tag {
-    color: #39ff14; 
-    font-family: 'JetBrains Mono', monospace;
-    border: 1px solid #39ff14;
-    padding: 4px 10px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-top: 10px;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
 }
-.logo{
+
+.logo {
     font-family: 'Rubik Spray Paint', cursive;
-    color: #ff00bd; /* Base Pink */
+    color: var(--pink);
     cursor: pointer;
-    transition: all 0.3s ease; /* Makes the glow fade in smoothly */
+    transition: all 0.3s ease;
 }
 
 .logo:hover {
-    color: #39ff14; /* Swaps to Green on hover */
-    text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14; /* Adds the neon glow */
+    color: var(--green);
+    text-shadow: 0 0 10px var(--green);
 }
 
+/* About Section Layout */
+.about-section {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    background: #1a1a1a;
+    border: 2px solid var(--pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.skill-tag {
+    color: var(--green); 
+    font-family: 'JetBrains Mono', monospace;
+    border: 1px solid var(--green);
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 5px 5px 0 0;
+}
+
+/* Projects Grid */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
-    gap: 20px; /* Space between the boxes */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px;
     margin-top: 20px;
 }
 
 .project-card {
-    background: #1a1a1a;
-    border: 1px solid #ff00ff; /* That neon pink/purple vibe */
-    padding: 15px;
-    text-decoration: none; /* Removes the blue underline from links */
-    color: white;
-    transition: transform 0.3s;
-}
-
-.project-card:hover {
-    transform: scale(1.05); /* Makes it pop when you hover over it */
-    box-shadow: 0 0 15px #ff00ff;
-}
-
-/* This targets the 'parent' container */
-.grid-container {
-    display: grid;
-    /* This creates 3 equal columns that take up 1 fraction of space each */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 30px; /* This creates the gutters/spacing between your boxes */
-    padding: 20px 0;
-}
-
-/* This styles the individual project cards */
-.project-card {
     background-color: #1a1a1a;
-    border: 2px solid #ff00ff; /* Neon border to match your vibe */
+    border: 1px solid var(--pink);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 4px;
     text-align: center;
-    text-decoration: none; /* Keeps the link from turning blue/underlined */
+    text-decoration: none;
     color: white;
-    transition: 0.3s; /* Makes the hover effect smooth */
+    transition: 0.3s ease;
 }
 
-/* This makes the card 'pop' when you mouse over it */
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(255, 0, 255, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 15px rgba(255, 0, 189, 0.3);
+    border-color: var(--green);
+}
+
+.project-thumb {
+    height: 100px;
+    background: #2a2a2a;
+    margin-bottom: 15px;
+    border-radius: 2px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .grid-container { grid-template-columns: 1fr; }
+    .about-section { flex-direction: column; text-align: center; }
 }
