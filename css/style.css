@@ -1,3 +1,4 @@
+/* 1. VARIABLES & RESET */
 :root {
     --bg: #0d0208;
     --pink: #ff00bd;
@@ -8,13 +9,14 @@
 body { 
     background-color: var(--bg);
     background-image: linear-gradient(rgba(13, 2, 8, 0.9), rgba(13, 2, 8, 0.9)),
-    url('../Assets/bunnyhead.png'); /* Goes up one folder to find assets */
+                      url('../Assets/bunnyhead.png');
     background-repeat: repeat;
     background-size: 80px;
     background-attachment: fixed;
     color: var(--text);
     font-family: 'Inter', sans-serif;
     margin: 0;
+    line-height: 1.6;
 }
 
 main {
@@ -23,20 +25,25 @@ main {
     padding: 40px 20px;
 }
 
+/* 2. HEADER */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .name {
-    font-family: 'Inter', cursive;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 1.8rem;
     color: var(--text);
     margin: 0;
 }
 
-/* About Section */
+/* 3. ABOUT SECTION & PROFILE IMAGE */
 .about-section {
     display: flex;
     gap: 30px;
@@ -44,26 +51,29 @@ header {
     margin-bottom: 60px;
 }
 
+/* We merged .profile-pic and .profile-box here */
 .profile-pic {
-    width: 120px;
-    height: 120px;
-    overflow: hidden;
+    width: 150px !important;
+    height: 150px !important;
+    min-width: 150px;
+    overflow: hidden !important;
     background: #1a1a1a;
     border: 2px solid var(--pink);
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0; /* Prevents the box from squishing */
 }
 
-.profile-pic img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.profile-pic img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
     object-position: center;
+    display: block;
 }
 
-
-/* The Grid */
+/* 4. PROJECTS GRID */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -71,56 +81,34 @@ header {
 }
 
 .project-card {
-    background: #1a1a1a;
+    background: rgba(26, 26, 26, 0.95);
     border: 1px solid var(--pink);
     padding: 20px;
     text-decoration: none;
-    color: white;
-    transition: 0.3s;
-    display: block;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--green);
-    box-shadow: 0 5px 15px rgba(57, 255, 20, 0.2);
-}
-
-.project-thumb {
-    height: 120px;
-    background: #2a2a2a;
-    margin-bottom: 10px;
-}
-
-/* Mobile Fix */
-@media (max-width: 768px) {
-    .grid-container { grid-template-columns: 1fr; }
-    .about-section { flex-direction: column; text-align: center; }
-}
-
-.project-card {
-    background: rgba(26, 26, 26, 0.95); /* Slightly darker, solid feel */
-    border: 1px solid var(--pink);
-    padding: 15px;
-    text-decoration: none;
     color: var(--text);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother animation */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: flex;
     flex-direction: column;
 }
 
 .project-card:hover {
-    transform: translateY(-10px); 
+    transform: translateY(-10px);
     border-color: var(--green);
-    box-shadow: 0 10px 20px rgba(57, 255, 20, 0.2); /* Neon green glow */
+    box-shadow: 0 10px 20px rgba(57, 255, 20, 0.2);
+}
+
+.project-thumb {
+    height: 120px;
+    background: #2a2a2a;
+    margin-bottom: 15px;
 }
 
 .project-card h3 {
-    margin: 10px 0 5px 0;
+    margin: 0 0 5px 0;
     font-family: 'JetBrains Mono', monospace;
     color: var(--green);
+    font-size: 1.1rem;
 }
-
 
 .project-card p {
     font-size: 0.85rem;
@@ -128,45 +116,24 @@ header {
     margin: 0;
 }
 
-/* This triggers when the screen is 768px wide or smaller */
+/* 5. MOBILE RESPONSIVE STYLES */
 @media (max-width: 768px) {
-    
-    .about-container {
-        flex-direction: column; /* Stacks the pic on top of the text */
-        align-items: center;    /* Centers everything */
-        text-align: center;     /* Centers your bio text */
-        gap: 20px;
-    }
-
     header {
-        flex-direction: column; /* Stacks your name and email */
+        justify-content: center;
         text-align: center;
-        gap: 10px;
     }
 
-    .project-grid {
-        grid-template-columns: 1fr; /* Changes 3 columns to 1 big column */
+    .about-section {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .profile-box {
-        width: 200px; /* You can make the pic a bit bigger on mobile */
-        height: 200px;
-        overflow: hidden;
+    .grid-container {
+        grid-template-columns: 1fr; /* Stacks cards in 1 column */
     }
-}
 
-.profile-box {
-    width: 150px !important;
-    height: 150px !important;
-    overflow: hidden !important;
-    border: 2px solid #ff00bd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-box img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
+    .profile-pic {
+        width: 180px !important; /* Slightly larger on mobile */
+        height: 180px !important;
+    }
 }
