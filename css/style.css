@@ -151,5 +151,6 @@ header {
     .profile-box {
         width: 200px; /* You can make the pic a bit bigger on mobile */
         height: 200px;
+        overflow: hidden;
     }
 }
