@@ -54,3 +54,24 @@ main {
     color: #39ff14; /* Swaps to Green on hover */
     text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14; /* Adds the neon glow */
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 20px; /* Space between the boxes */
+    margin-top: 20px;
+}
+
+.project-card {
+    background: #1a1a1a;
+    border: 1px solid #ff00ff; /* That neon pink/purple vibe */
+    padding: 15px;
+    text-decoration: none; /* Removes the blue underline from links */
+    color: white;
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.05); /* Makes it pop when you hover over it */
+    box-shadow: 0 0 15px #ff00ff;
+}
