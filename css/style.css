@@ -1,4 +1,3 @@
-/* 1. VARIABLES & RESET */
 * {
     box-sizing: border-box;
 }
@@ -11,6 +10,7 @@
 }
 
 body { 
+    overflow-x: hidden;
     background-color: var(--bg);
     background-image: linear-gradient(rgba(13, 2, 8, 0.9), rgba(13, 2, 8, 0.9)),
                       url('../Assets/bunnyhead.png');
@@ -29,76 +29,147 @@ main {
     padding: 40px 20px;
 }
 
-/* 2. HEADER */
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
-    gap: 20px;
+    align-items: flex-end;
+    margin-bottom: 60px;
+    border-bottom: 1px solid rgba(255, 0, 189, 0.2);
+    padding-bottom: 15px;
 }
 
 .name {
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 1.8rem;
-    color: var(--text);
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
     margin: 0;
 }
 
-/* 3. ABOUT SECTION & PROFILE IMAGE */
-.about-section {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    margin-bottom: 60px;
+.contact-info {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--green);
+    margin: 0;
+    text-decoration: none; /* Removes the default underline */
+    transition: 0.3s;
 }
 
-/* We merged .profile-pic and .profile-box here */
-.profile-pic {
-    width: 150px !important;
-    height: 150px !important;
-    min-width: 150px;
-    overflow: hidden !important;
-    background: #1a1a1a;
-    border: 2px solid var(--pink);
+.contact-info:hover {
+    color: var(--pink); /* Changes color to pink when hovered */
+    text-shadow: 0 0 8px var(--pink); /* Adds a subtle glow effect */
+}
+
+.about-section {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0; /* Prevents the box from squishing */
+    gap: 50px;
+    align-items: flex-start;
+    margin-bottom: 80px;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
+    border: 2px solid var(--pink);
+    box-shadow: 8px 8px 0px var(--pink);
+    background: #1a1a1a;
 }
 
 .profile-pic img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center;
-    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* 4. PROJECTS GRID */
+.bio h3, .skills h3 {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--green);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.skill-tag {
+    display: inline-block;
+    border: 1px solid var(--pink);
+    color: var(--pink);
+    padding: 5px 12px;
+    margin: 5px 5px 5px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    transition: 0.3s;
+}
+
+.skill-tag:hover {
+    background: var(--pink);
+    color: var(--bg);
+    box-shadow: 0 0 10px var(--pink);
+}
+
+.slider-controls {
+    position: relative;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    background: var(--bg);
+    border: 1px solid var(--pink);
+    color: var(--pink);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.nav-btn.prev { left: -15px; }
+.nav-btn.next { right: -15px; }
+
+.nav-btn:hover {
+    background: var(--pink);
+    color: var(--bg);
+    box-shadow: 0 0 15px var(--pink);
+}
+
+.slider-wrapper {
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 20px 40px;
+    scroll-behavior: smooth;
+}
+
+.slider-wrapper::-webkit-scrollbar { display: none; }
+
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    display: flex;
     gap: 25px;
+    width: max-content;
 }
 
 .project-card {
+    width: 280px;
     background: rgba(26, 26, 26, 0.95);
     border: 1px solid var(--pink);
     padding: 20px;
     text-decoration: none;
     color: var(--text);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    display: flex;
-    flex-direction: column;
+    transition: 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
     border-color: var(--green);
-    box-shadow: 0 10px 20px rgba(57, 255, 20, 0.2);
 }
 
 .project-thumb {
@@ -107,49 +178,22 @@ header {
     margin-bottom: 15px;
 }
 
-.project-card h3 {
-    margin: 0 0 5px 0;
+.project-card h4 {
+    margin: 0;
     font-family: 'JetBrains Mono', monospace;
     color: var(--green);
-    font-size: 1.1rem;
 }
 
-.project-card p {
-    font-size: 0.85rem;
-    opacity: 0.8;
-    margin: 0;
-}
-
-/* 5. MOBILE RESPONSIVE STYLES */
 @media (max-width: 768px) {
-    header {
-        justify-content: center;
-        text-align: center;
-    }
-
     .about-section {
         flex-direction: column;
+        align-items: center;
         text-align: center;
     }
-
-    .grid-container {
-        grid-template-columns: 1fr; /* Stacks cards in 1 column */
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
-
-    .profile-pic {
-        width: 180px !important; /* Slightly larger on mobile */
-        height: 180px !important;
-    }
-}
-
-.skill-tag {
-    background: rgba(57, 255, 20, 0.1);
-    color: var(--text);
-    border: 1px solid var(--pink);
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    margin-right: 8px;
-    display: inline-block;
-    margin-top: 10px;
+    .profile-pic { width: 180px; height: 180px; }
 }

@@ -19,11 +19,13 @@
 
 <main>
     <header>
+        
         <h1 class="name"> Michael Paredes</h1>
-        <h2 class="contact-info"> Email: paredes6600@outlook.com</h2>
+        <a href="mailto:paredes6600@outlook.com" class="contact-info">Email: paredes6600@outlook.com</a>
     </header>
     
     <section class="about-section">
+        
         <div class="profile-pic"><img src="Assets/me2.png" alt=""></div>
         <div class="bio">
             <h3>About Me</h3>
@@ -31,6 +33,7 @@
 
             <div class="skills">
                 <h3>Skills</h3>
+
                 <span class="skill-tag">Unreal Engine 5</span>
                 <span class="skill-tag">Godot</span>
                 <span class="skill-tag">Story Writing</span>
@@ -44,30 +47,72 @@
     </section>
 
     <section class="projects">
-        <h3>Projects</h3>
-        <div class="grid-container">
-        <a href="#" class="project-card">
-            <div class="project-thumb"></div>
-            <h4>Games</h4>
-            <p>My Personal Art Pieces</p>
-        </a>
+    <div class="projects-header">
+        <h3>Featured Projects</h3>
+            <div class="slider-controls">
+                <button class="nav-btn prev" onclick="moveSlider(-1)">&#10094;</button>
+                <button class="nav-btn next" onclick="moveSlider(1)">&#10095;</button>
+            
+        
+        
+                <div class="slider-wrapper">
+                    <div class="grid-container">
+                
+                        <a href="#" class="project-card">
+                            <div class="project-thumb"></div>
+                            <h4>Games</h4>
+                            <p>My Personal Art Pieces</p>
+                        </a>
+                        
+                        <a href="#" class="project-card">
+                            <div class="project-thumb"></div>
+                            <h4>Coding Projects</h4>
+                            <p>Some c++ over here and there</p>
+                        
+                        </a>
 
-        <a href="#" class="project-card">
-            <div class="project-thumb"></div>
-            <h4>Coding Projects</h4>
-            <p>Some c++ over here and there</p>
-        </a>
+                        <a href="#" class="project-card">
+                            <div class="project-thumb"></div>
+                            <h4>Stories</h4>
+                            <p>Homemade Tales</p>
+                        </a>
 
-        <a href="#" class="project-card">
-            <div class="project-thumb"></div>
-            <h4>Stories</h4>
-            <p>Homemade Tales</p>
-        </a>
+                        <a href="#" class="project-card">
+                            <div class="project-thumb"></div>
+                            <h4>Games</h4>
+                            <p>My Personal Art Pieces</p>
+                        </a>
 
-        </div>
+                        <a href="#" class="project-card">
+                            <div class="project-thumb"></div>
+                            <h4>Games</h4>
+                            <p>My Personal Art Pieces</p>
+                        </a>
 
-    </section>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+
 </main>
+
+<script>
+    function moveSlider(direction) {
+        // Find the element with the CLASS 'slider-wrapper'
+        const slider = document.querySelector('.slider-wrapper');
+        
+        const scrollAmount = 325; 
+
+        if (slider) {
+            slider.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    }
+</script>
+
 
 </body>
 
