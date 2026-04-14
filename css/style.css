@@ -51,13 +51,13 @@ header {
     font-size: 0.85rem;
     color: var(--green);
     margin: 0;
-    text-decoration: none; /* Removes the default underline */
+    text-decoration: none; 
     transition: 0.3s;
 }
 
 .contact-info:hover {
-    color: var(--pink); /* Changes color to pink when hovered */
-    text-shadow: 0 0 8px var(--pink); /* Adds a subtle glow effect */
+    color: var(--pink); 
+    text-shadow: 0 0 8px var(--pink); 
 }
 
 .about-section {
@@ -156,6 +156,30 @@ header {
     gap: 25px;
     width: max-content;
 }
+
+.project-thumb {
+    height: 150px; 
+    background: #2a2a2a;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 0, 189, 0.3);
+    align-items: center;
+    justify-content: center; 
+}
+
+.project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    object-position: center;
+    transition: transform 0.5s ease; 
+}
+
+
+.project-card:hover .project-thumb img {
+    transform: scale(1.1);
+}
+
 
 .project-card {
     width: 280px;
